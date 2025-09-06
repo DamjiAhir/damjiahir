@@ -30,7 +30,7 @@ const projectsList = [
       { name: "JavaScript" },
       { name: "ReactJs" },
     ],
-    image: "/assets/frontend.png",
+    image: "/assets/Screenshot 2025-07-09 114842.png",
     github: "https://github.com/DamjiAhir",
     liveweb: "https://github.com/DamjiAhir",
   },
@@ -53,8 +53,8 @@ const projectsList = [
       "Handle server-side logic, API development, and database interactions.",
     stack: [{ name: "NodeJS" }, { name: "ExpressJs" }, { name: "MongoDB" }],
     image: "/assets/backend.png",
-    github: "https://github.com/DamjiAhir",
-    liveweb: "https://github.com/DamjiAhir",
+    github: "https://github.com/DamjiAhir/mediprime",
+    liveweb: "https://mediprime-phi.vercel.app/",
   },
 ];
 const Projects = () => {
@@ -110,7 +110,7 @@ const Projects = () => {
               <div className="border border-white/60"></div>
               {/* buttons */}
               <div className="flex gap-3">
-                <Link href={projects.liveweb}>
+                <Link href={projects.liveweb} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger
@@ -125,7 +125,7 @@ const Projects = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-                <Link href={projects.github}>
+                <Link href={projects.github} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger

@@ -14,7 +14,7 @@ const socialIcon = [
   },
   {
     icon: <FaInstagram />,
-    path: "https://www.instagram.com/damji_ahir_07/profilecard/?igsh=MXY5YnA0bjhpYTJlbg==",
+    path: "https://www.instagram.com/damji___39",
   },
 ];
 const Social = ({ containerStyle, iconStyle }) => {
@@ -22,7 +22,7 @@ const Social = ({ containerStyle, iconStyle }) => {
     <div className={containerStyle}>
       {socialIcon.map((item, index) => {
         return (
-          <Link key={index} href={item.path} className={iconStyle}>
+          <Link key={index} href={item.path} target="_blank" className={iconStyle}>
             {item.icon}
           </Link>
         );

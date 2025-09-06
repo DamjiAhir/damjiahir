@@ -23,7 +23,7 @@ function Resume() {
   const aboutMe = {
     title: "About Me",
     discription:
-      "Commerce student excelling in web development, blending creativity, technology, and entrepreneurial spirit.",
+      "excelling in web development, blending creativity, technology, and entrepreneurial spirit.",
     info: [
       {
         fieldName: "Name",
@@ -60,7 +60,7 @@ function Resume() {
     icon: <FaJs />,
     title: "My Education",
     discription:
-      "Self-taught commerce student mastering web development through Online Courses and YouTube, driven by passion and persistence.",
+      "Self-taught mastering web development through Online Courses and YouTube, driven by passion and persistence.",
     info: [
       {
         institude: "Udamy and YouTube",

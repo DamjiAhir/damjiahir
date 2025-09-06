@@ -164,7 +164,7 @@ export default function ContactForm() {
                       <p className="text-white/60">{items.title}</p>
                       <h3 className="text-xl">
                         {items.discription}
-                        {success}
+                        
                       </h3>
                     </div>
                   </li>
