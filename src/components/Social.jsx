@@ -6,7 +6,7 @@ const socialIcon = [
   { icon: <FaGithub />, path: "https://github.com/DamjiAhir" },
   {
     icon: <FaLinkedinIn />,
-    path: "https://www.linkedin.com/in/damji-ahir?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    path: "https://www.linkedin.com/in/damji-ahir",
   },
   {
     icon: <FaTwitter />,

@@ -21,7 +21,7 @@ function Photo() {
           className="absolute ml-12 mt-4 xl:ml-0 xl:mt-0 h-[220px] w-[288px] xl:h-[330px] xl:w-[330px]  mix-blend-lighten"
         >
           <Image
-            src="/assets/myImage1.png"
+            src="/assets/"
             priority
             quality={100}
             sizes=""

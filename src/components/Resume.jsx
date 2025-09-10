@@ -63,9 +63,14 @@ function Resume() {
       "Self-taught mastering web development through Online Courses and YouTube, driven by passion and persistence.",
     info: [
       {
+        institude: "Marwadi University",
+        degree: "Cyber Security & cyber Law",
+        duration: "June,2025 - Present",
+      },
+      {
         institude: "Udamy and YouTube",
         degree: "Back-End Development",
-        duration: "March,2024 - Present",
+        duration: "March,2024 - June,2025",
       },
       {
         institude: "Udamy and YouTube",
@@ -84,7 +89,7 @@ function Resume() {
       },
       {
         institude: "Saurashtra University",
-        degree: "B.Com",
+        degree: "B.CA",
         duration: "2022-Present",
       },
       {
