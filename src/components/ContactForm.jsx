@@ -15,7 +15,7 @@ const info = [
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    discription: "Gharana Kutch Gujrat-370150",
+    discription: "Rajkot Gujrat-360002, India",
   },
 ];
 

@@ -31,8 +31,8 @@ const projectsList = [
       { name: "ReactJs" },
     ],
     image: "/assets/Screenshot 2025-07-09 114842.png",
-    github: "https://github.com/DamjiAhir",
-    liveweb: "https://github.com/DamjiAhir",
+    github: "https://github.com/DamjiAhir/mediprime",
+    liveweb: "https://mediprime-phi.vercel.app/",
   },
   {
     num: "02",
