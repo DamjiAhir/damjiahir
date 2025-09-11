@@ -88,7 +88,7 @@ export default function ContactForm() {
               className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
             >
               <h1 className="text-4xl font-bold text-[#00ffff]">
-                Let's Work Together
+                Let&apos;s Work Together
               </h1>
               <p className="text-white/60">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
