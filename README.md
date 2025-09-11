@@ -1,7 +1,7 @@
-Hey, I'm [Your Name]! ✨
+Hey, I'm Damji Ahir! ✨
 
-I'm a student and aspiring [Your Future Role, e.g., Software Engineer] from India 🇮🇳. I love building projects and I'm currently diving deep into the world of web development.
-🌱 What I'm Currently Learning
+<p>I'm a student and aspiring Software Engineer from India 🇮🇳. I love building projects and I'm currently diving deep into the world of web development.</p>
+<h1>🌱 What I'm Currently Learning</h1>
 Languages: JavaScript (ES6+), TypeScript, Python
 Frameworks: React & Next.js for frontend, Node.js & Express for backend.
 Tools: Git, Docker, VS Code, Figma
