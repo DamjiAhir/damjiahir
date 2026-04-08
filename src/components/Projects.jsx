@@ -122,7 +122,7 @@ const Projects = () => {
                   {/* Category & Title */}
                   <div>
                     <h3 className="text-[#00FFFF] font-mono text-sm tracking-widest uppercase mb-2">
-                      // {projects.category}
+                      {"//"} {projects.category}
                     </h3>
                     <h2 className="text-[42px] text-white font-bold leading-tight capitalize">
                       {projects.title}
