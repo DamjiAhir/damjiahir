@@ -2,6 +2,7 @@ import React from "react";
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 import Header from "@/components/Header";
+import Preloader from "@/components/Preloader";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -15,16 +16,18 @@ export const metadata = {
   keywords: [],
   manifest: '/manifest.json',
   icons: {
-    icon: '/icon.png', 
-    shortcut: '/favicon.ico', 
-    apple: '/apple-icon.png', 
+    icon: '/icon.png',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body className={jetbrainsMono.className}>
+        <Preloader />
         <Header />
         {children}
       </body>

@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { FaDownload } from "react-icons/fa";
 
-function Header() {
+export default function Header() {
   return (
     <header className=" py-4 xl:py-10 text-white">
       <div className="container mx-auto flex justify-between items-center">
@@ -14,12 +14,12 @@ function Header() {
           </h1>{" "}
         </Link>
 
-        <Button  onClick={() => {
-    const link = document.createElement("a");
-    link.href = "/Damji Ahir.pdf";
-    link.download = "Damji Ahir.pdf"; // filename after download
-    link.click();
-  }} variant="outline" className='rounded-full'>
+        <Button onClick={() => {
+          const link = document.createElement("a");
+          link.href = "/Damji Ahir.pdf";
+          link.download = "Damji Ahir.pdf"; // filename after download
+          link.click();
+        }} variant="outline" className='rounded-full'>
           <span>DOWNLOAD CV</span>
           <FaDownload />
         </Button>
@@ -28,4 +28,3 @@ function Header() {
   );
 }
 
-export default Header;

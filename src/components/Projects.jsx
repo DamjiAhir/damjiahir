@@ -1,62 +1,67 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-
+import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-import Link from "next/link";
-import Image from "next/image";
+import { BsShieldLockFill } from "react-icons/bs";
 import SliderBtn from "./SliderBtn";
 
 const projectsList = [
   {
     num: "01",
-    title: "Project 1",
-    category: "FrontEnd",
-    discription:
-      "Create dynamic, responsive, and visually appealing user interfaces.",
-    stack: [
-      { name: "Html5" },
-      { name: "Css3" },
-      { name: "JavaScript" },
-      { name: "ReactJs" },
-    ],
-    image: "/assets/Screenshot 2025-07-09 114842.png",
-    github: "https://github.com/DamjiAhir/mediprime",
-    liveweb: "https://mediprime-phi.vercel.app/",
+    title: "Avadh Kitchen Equipments",
+    category: "Industrial B2B Ecosystem",
+    description:
+      "A high-performance mobile solution for Rajkot's leading industrial kitchen manufacturer. I engineered an enterprise-grade inventory system that tracks specialized heavy machinery, reducing manual stock errors by 40% and streamlining client quotations.",
+    stack: ["React Native", "Next.js", "MongoDB"],
+    fileName: "avadh-inventory.tsx",
+    codeSnippet: `export const EquipmentTracker = () => {
+  const [stock, setStock] = useInventory('avadh_central');
+
+  /* Handle specialized industrial hardware scaling */
+  return stock
+    .filter(item => item.category === 'heavy_duty')
+    .map(unit => <AssetCard key={unit.id} data={unit} />);
+};`
   },
   {
     num: "02",
-    title: "Project 2",
-    category: "Full-Stack",
-    discription:
-      "Develop end-to-end applications with server-side rendering and a rich UI.",
-    stack: [{ name: "NextJs" }, { name: "Tailwind.css" }, { name: "Shadcn" }],
-    image: "/assets/fullstack.png",
-    github: "https://github.com/DamjiAhir",
-    liveweb: "https://github.com/DamjiAhir",
+    title: "Rajkot Watch Hub",
+    category: "Marketplace Automation",
+    description:
+      "A localized order management engine specifically optimized for the high-volume retail landscape of Rajkot. I built a custom admin architecture that handles the complete order lifecycle—from secure intake to automated dispatch logs.",
+    stack: ["PHP", "MySQL", "JavaScript"],
+    fileName: "order-controller.php",
+    codeSnippet: `public function syncRetailOrder($payload) {
+  $local_tax = 18.00; // Local Compliance
+  
+  $db->prepare("INSERT INTO rajkot_sales (item, status) VALUES (?, ?)")
+     ->execute([$payload->watch_id, 'processing']);
+     
+  return Response::json(['status' => 'synchronized']);
+}`
   },
   {
     num: "03",
-    title: "Project 3",
-    category: "Backend",
-    discription:
-      "Handle server-side logic, API development, and database interactions.",
-    stack: [{ name: "NodeJS" }, { name: "ExpressJs" }, { name: "MongoDB" }],
-    image: "/assets/backend.png",
-    github: "https://github.com/DamjiAhir/mediprime",
-    liveweb: "https://mediprime-phi.vercel.app/",
+    title: "AI Multi-Channel Agent",
+    category: "Workflow Engineering",
+    description:
+      "An AI-driven automation pipeline utilizing n8n to connect WhatsApp and Telegram. I integrated OpenAI to analyze customer intent, allowing the system to automatically capture orders and update CRMs 24/7 without human intervention.",
+    stack: ["n8n", "OpenAI API", "WhatsApp Cloud"],
+    fileName: "ai-webhook.json",
+    codeSnippet: `{
+  "node": "n8n-nodes-base.openAi",
+  "parameters": {
+    "resource": "chat",
+    "prompt": "Extract order details from WhatsApp msg",
+    "channels": ["Telegram", "WhatsApp"]
+  },
+  "security": "Encrypted_Webhook_Active"
+}`
   },
 ];
+
 const Projects = () => {
   const [projects, setProjects] = useState(projectsList[0]);
 
@@ -66,119 +71,146 @@ const Projects = () => {
   };
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-      }}
-      className="min-h-[80vh] flex justify-center py-12 xl:px-0"
-    >
-      <div className="container mx-auto ">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[450px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[25px] h-[50%]">
-              {/* uotlinenum */}
-              <div className="text-8xl leading-none font-extrabold text-transparent font-outline-2">
-                {projects.num}
-              </div>
-              {/* category */}
+    <>
+      {/* Component-Specific Cyber Scrollbar Styles */}
+      <style>{`
+        .cyber-scrollbar::-webkit-scrollbar {
+          width: 4px;
+          height: 4px;
+        }
+        .cyber-scrollbar::-webkit-scrollbar-track {
+          background: rgba(0, 255, 255, 0.05);
+          border-radius: 10px;
+        }
+        .cyber-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(0, 255, 255, 0.4);
+          border-radius: 10px;
+        }
+        .cyber-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(0, 255, 255, 0.9);
+        }
+      `}</style>
 
-              <h2 className="text-[42px] text-white font-bold leading-none hover:text-[#00FFFF] transition-all duration-500  capitalize ">
-                {projects.category} Project
-              </h2>
-              {/* discription*/}
-              <p className="text-white/60 max-w-[400px] capitalize">
-                {projects.discription}
-              </p>
-              {/* Stacke */}
-              <ul className="flex gap-3">
-                {projects.stack.map((items, index) => {
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        }}
+        className="min-h-[80vh] flex justify-center py-12 xl:px-0"
+      >
+        <div className="container mx-auto">
+          <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+
+            {/* Animated Left Content Column */}
+            <div className="w-full xl:w-[50%] xl:h-[450px] flex flex-col xl:justify-center order-2 xl:order-none relative pt-4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={projects.num}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="flex flex-col gap-[20px]"
+                >
+
+                  {/* Outline Number - Fixed Clipping */}
+                  <div className="text-8xl leading-none font-extrabold text-transparent font-outline-2 select-none pt-2 pb-2">
+                    {projects.num}
+                  </div>
+
+                  {/* Category & Title */}
+                  <div>
+                    <h3 className="text-[#00FFFF] font-mono text-sm tracking-widest uppercase mb-2">
+                      // {projects.category}
+                    </h3>
+                    <h2 className="text-[42px] text-white font-bold leading-tight capitalize">
+                      {projects.title}
+                    </h2>
+                  </div>
+
+                  {/* Description with Custom Scrollbar */}
+                  <p className="text-white/70 max-w-[450px] text-lg leading-relaxed max-h-[110px] overflow-y-auto pr-4 cyber-scrollbar">
+                    {projects.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <ul className="flex flex-wrap gap-3 mt-2">
+                    {projects.stack.map((item, index) => {
+                      return (
+                        <li
+                          className="text-sm font-medium text-[#00FFFF] bg-[#00FFFF]/10 px-3 py-1.5 rounded border border-[#00FFFF]/20"
+                          key={index}
+                        >
+                          {item}
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  <div className="border-b border-white/10 w-full my-2"></div>
+
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Right Slider Column (IDE Mockup) */}
+            <div className="w-full xl:w-[50%] mt-8 xl:mt-0 relative">
+              <Swiper
+                spaceBetween={30}
+                slidesPerView={1}
+                onSlideChange={handleSlideChange}
+                className="xl:h-[460px] pb-12 xl:pb-0"
+              >
+                {projectsList.map((project, index) => {
                   return (
-                    <li
-                      className="text-lg sm:text-xl text-[#00FFFF]"
-                      key={index}
-                    >
-                      {items.name}
-                      {/* invertedcoma */}
-                      {index !== projects.stack.length - 1 && ","}
-                    </li>
+                    <SwiperSlide key={index}>
+                      <div className="h-[400px] xl:h-[460px] w-full rounded-xl flex flex-col bg-[#111115] border border-white/10 overflow-hidden shadow-2xl relative group">
+
+                        {/* IDE Header */}
+                        <div className="h-12 bg-[#1c1c22] border-b border-white/5 flex items-center justify-between px-4 w-full">
+                          <div className="flex gap-2">
+                            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                          </div>
+                          <div className="text-[12px] text-white/40 font-mono tracking-widest bg-black/40 px-3 py-1 rounded">
+                            {project.fileName}
+                          </div>
+                        </div>
+
+                        {/* Code Area */}
+                        <div className="flex-1 relative p-6 overflow-hidden bg-[#0d0d0f] flex flex-col justify-center">
+
+                          {/* Security Badge */}
+                          <div className="absolute top-4 right-4 flex items-center gap-2 bg-[#00FFFF]/10 border border-[#00FFFF]/30 px-3 py-1.5 rounded backdrop-blur-sm z-20">
+                            <BsShieldLockFill className="text-[#00FFFF] text-xs" />
+                            <span className="text-[10px] text-[#00FFFF] font-mono font-bold tracking-widest uppercase">Secure</span>
+                          </div>
+
+                          {/* Plain Text Code Snippet with Scrollbar */}
+                          <pre className="z-10 w-full overflow-x-auto cyber-scrollbar pb-4">
+                            <code className="text-[#00FFFF]/80 font-mono text-[14px] leading-loose">
+                              {project.codeSnippet}
+                            </code>
+                          </pre>
+                        </div>
+                      </div>
+                    </SwiperSlide>
                   );
                 })}
-              </ul>
-              {/* border */}
-              <div className="border border-white/60"></div>
-              {/* buttons */}
-              <div className="flex gap-3">
-                <Link href={projects.liveweb} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger
-                        aria-label={projects.title}
-                        className="h-[70px] w-[70px] rounded-full flex justify-center items-center group  bg-white/5"
-                      >
-                        <BsArrowUpRight className=" text-3xl hover:text-[#00FFFF]" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live Project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
-                <Link href={projects.github} target="_blank">
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger
-                        aria-label={projects.title}
-                        className="h-[70px] w-[70px] rounded-full flex justify-center items-center group  bg-white/5"
-                      >
-                        <BsGithub className=" text-3xl hover:text-[#00FFFF]" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>GitHub Repo</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
-              </div>
+
+                {/* Slider Controls */}
+                <SliderBtn
+                  containerStyle="flex gap-3 absolute right-0 bottom-0 z-20 w-full justify-end px-2 xl:px-0"
+                  btnStyle="text-[20px] w-[45px] h-[45px] bg-[#1c1c22] border border-[#00FFFF]/50 flex items-center justify-center text-[#00FFFF] hover:bg-[#00FFFF] hover:text-[#1c1c22] transition-all duration-300 rounded"
+                />
+              </Swiper>
             </div>
           </div>
-          <div className="w-full xl:w-[50%]">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              onSlideChange={handleSlideChange}
-              className="xl:h-[520px]"
-            >
-              {projectsList.map((project, index) => {
-                return (
-                  <SwiperSlide key={index}>
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                      {/* overlay */}
-                      <div className="absolute w-full h-full top-0 bottom-0 z-10 bg-black/10"></div>
-                      {/* image */}
-                      <div className="relative h-full w-full">
-                        <Image
-                          src={project.image}
-                          fill
-                          sizes=""
-                          alt=""
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-              <SliderBtn
-                containerStyle="flex gap-2 absolute right-0 bottom-[calc(50%_-_20px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyle="text-[22px] w-[44px] h-[44px] bg-[#00FFFF] flex items-center justify-center text-black hover:bg-[#00b7b7] transition-all "
-              />
-            </Swiper>
-          </div>
         </div>
-      </div>
-    </motion.section>
+      </motion.section>
+    </>
   );
 };
 

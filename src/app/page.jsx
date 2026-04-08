@@ -7,6 +7,8 @@ import Resume from "@/components/Resume";
 import Social from "@/components/Social";
 import Stats from "@/components/Stats";
 import { Button } from "@/components/ui/button";
+import MouseFollower from "@/components/MousFollower";
+import Services from "@/components/Services";
 
 export default function Home() {
   const targetDivRef = useRef(null);
@@ -14,7 +16,8 @@ export default function Home() {
     targetDivRef.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <>
+    <main>
+      <MouseFollower />
       <section className="h-full ">
         <div className="container mx-auto h-full ">
           <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-5 xl:pb-5 ">
@@ -59,9 +62,12 @@ export default function Home() {
       <section>
         <Projects />
       </section>
+      <section>
+        <Services />
+      </section>
       <div ref={targetDivRef}>
         <ContactForm />
       </div>
-    </>
+    </main>
   );
 }
